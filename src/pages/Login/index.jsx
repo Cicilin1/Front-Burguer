@@ -1,4 +1,5 @@
 import Logo from '../../assets/logo/junk-food.png';
+import { Button } from '../../components/Button';
 import {
   Container,
   LeftContainer,
@@ -6,7 +7,6 @@ import {
   Title,
   Form,
   InputContainer,
-  Button,
   Link,
 } from './styles';
 
