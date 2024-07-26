@@ -95,6 +95,13 @@ export const Form = styled.form`
 
   border-radius: 7px;
   font-size: 14px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    width: 90%;
+    height: 60%;
+    padding: 0;
+  }
 `;
 
 export const InputContainer = styled.div`
