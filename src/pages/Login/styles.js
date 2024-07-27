@@ -84,7 +84,7 @@ export const Title = styled.h2`
 `;
 
 export const Form = styled.form`
-  background: #f1f1f1;
+  background: #eeedeb;
   height: auto;
   width: 300px;
   display: flex;
@@ -110,10 +110,20 @@ export const InputContainer = styled.div`
   margin: 10px 0 5px;
 
   input {
-    width: 100%;
+    width: 220px;
     border: none;
     border-radius: 5px;
-    padding: 5px 10px;
+    padding: 10px 10px;
+  }
+
+  .Notification {
+    margin: 5px 0;
+    font-size: 11px;
+    line-height: 80%;
+    color: #cf3057;
+    font-weight: 600;
+    height: 10px;
+    width: 220px;
   }
 `;
 
@@ -121,6 +131,7 @@ export const Link = styled.a`
   font-size: 12px;
   color: #646464;
   transition: 0.2s;
+  margin: 10px 0;
 
   &:hover {
     color: #000;
