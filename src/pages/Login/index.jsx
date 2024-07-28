@@ -1,4 +1,5 @@
 import { useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
 
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
@@ -38,10 +39,17 @@ export function Home() {
     resolver: yupResolver(schema),
   });
   const onSubmit = async (data) => {
-    const response = await api.post('/session', {
-      email: data.email,
-      password: data.password,
-    });
+    const response = await toast.promise(
+      api.post('/session', {
+        email: data.email,
+        password: data.password,
+      }),
+      {
+        pending: 'Verificando seus dados',
+        success: 'Seja bem vindo(a)',
+        error: 'Email ou senha incorretos',
+      },
+    );
 
     console.log(response);
   };
