@@ -99,7 +99,6 @@ export const Form = styled.form`
   @media (max-width: 768px) {
     flex-direction: column;
     width: 90%;
-    height: 60%;
     padding: 0;
   }
 `;

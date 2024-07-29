@@ -17,7 +17,7 @@ import {
   Link,
 } from './styles';
 
-export function Home() {
+export function Login() {
   const schema = yup
     .object({
       email: yup
