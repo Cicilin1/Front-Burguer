@@ -42,21 +42,31 @@ export function Register() {
   } = useForm({
     resolver: yupResolver(schema),
   });
-  const onSubmit = async (data) => {
-    const response = await toast.promise(
-      api.post('/users', {
-        name: data.name,
-        email: data.email,
-        password: data.password,
-      }),
-      {
-        pending: 'Verificando seus dados',
-        success: 'Cadastro concluído!',
-        error: 'Ops, algo deu errado! Tente novamente!',
-      },
-    );
 
-    console.log(response);
+  const onSubmit = async (data) => {
+    try {
+      const { status } = await api.post(
+        '/users',
+        {
+          name: data.name,
+          email: data.email,
+          password: data.password,
+        },
+        {
+          validateStatus: () => true,
+        },
+      );
+
+      if (status === 200 || status === 201) {
+        toast.success('Conta criada com sucesso!');
+      } else if (status === 409) {
+        toast.error('Email já cadastrado! Faça o login...');
+      } else {
+        throw new Error();
+      }
+    } catch (error) {
+      toast.error('Algo deu errado, tente novamente!');
+    }
   };
   return (
     <Container>
