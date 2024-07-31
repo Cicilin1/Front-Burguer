@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const ContainerButton = styled.button`
-  margin: 20px 0;
   padding: 5px 0;
   width: 150px;
   border-radius: 5px;

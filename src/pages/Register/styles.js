@@ -80,7 +80,7 @@ export const RightContainer = styled.div`
 
 export const Title = styled.h2`
   font-size: 20px;
-  margin: 20px 0 30px;
+  margin: 20px 0 10px 0;
 `;
 
 export const Form = styled.form`
@@ -91,48 +91,42 @@ export const Form = styled.form`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 1.5rem 0;
+  padding: 1rem 0;
 
   border-radius: 7px;
   font-size: 14px;
 
   @media (max-width: 768px) {
     flex-direction: column;
-    width: 90%;
+    width: 350px;
     padding: 0;
+    padding: 0.5rem 0;
+  }
+
+  @media (max-width: 410px) {
+    width: 90%;
   }
 `;
 
 export const InputContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 10px 0 5px;
+  margin: 0px 0 5px;
 
   input {
     width: 220px;
     border: none;
     border-radius: 5px;
-    padding: 10px 10px;
+    padding: 5px 10px;
   }
 
   .Notification {
-    margin: 5px 0;
+    margin: 10px 0;
     font-size: 11px;
     line-height: 80%;
     color: #cf3057;
     font-weight: 600;
     height: 10px;
     width: 220px;
-  }
-`;
-
-export const Link = styled.a`
-  font-size: 12px;
-  color: #646464;
-  transition: 0.2s;
-  margin: 10px 0;
-
-  &:hover {
-    color: #000;
   }
 `;
