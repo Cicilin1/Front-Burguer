@@ -1,3 +1,5 @@
+import { Link as ReactLink } from 'react-router-dom';
+
 import styled from 'styled-components';
 
 import ImgBackground from '../../assets/backgroundBlack.jpg';
@@ -96,6 +98,11 @@ export const Form = styled.form`
   border-radius: 7px;
   font-size: 14px;
 
+  p {
+    font-size: 13 px;
+    margin-top: 10px;
+  }
+
   @media (max-width: 768px) {
     flex-direction: column;
     width: 90%;
@@ -130,7 +137,18 @@ export const Link = styled.a`
   font-size: 12px;
   color: #646464;
   transition: 0.2s;
-  margin: 10px 0;
+  margin-bottom: 15px;
+
+  &:hover {
+    color: #000;
+  }
+`;
+
+export const LinkReact = styled(ReactLink)`
+  text-decoration: none;
+  color: #fff;
+  color: grey;
+  font-weight: 500;
 
   &:hover {
     color: #000;

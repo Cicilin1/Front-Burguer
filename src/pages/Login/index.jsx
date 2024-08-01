@@ -1,4 +1,5 @@
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -15,9 +16,11 @@ import {
   Form,
   InputContainer,
   Link,
+  LinkReact,
 } from './styles';
 
 export function Login() {
+  const navigate = useNavigate();
   const schema = yup
     .object({
       email: yup
@@ -39,19 +42,27 @@ export function Login() {
     resolver: yupResolver(schema),
   });
   const onSubmit = async (data) => {
-    const response = await toast.promise(
-      api.post('/session', {
-        email: data.email,
-        password: data.password,
-      }),
-      {
-        pending: 'Verificando seus dados',
-        success: 'Seja bem vindo(a)',
-        error: 'Email ou senha incorretos',
-      },
-    );
+    try {
+      const response = await toast.promise(
+        api.post('/session', {
+          email: data.email,
+          password: data.password,
+        }),
+        {
+          pending: 'Verificando seus dados',
+          success: {
+            render() {
+              setTimeout(() => {
+                navigate('/Home');
+              }, 2000);
 
-    console.log(response);
+              return `Olá ${data.name}`;
+            },
+          },
+          error: 'Email ou senha incorretos',
+        },
+      );
+    } catch (error) {}
   };
   return (
     <Container>
@@ -77,7 +88,10 @@ export function Login() {
           <Link>Esqueci minha senha!</Link>
 
           <Button type="submit">ENTRAR</Button>
-          <Link>Não possui conta ? Clique aqui!</Link>
+          <p>
+            Não possui conta ?{' '}
+            <LinkReact to="/Cadastro">Clique aqui!</LinkReact>{' '}
+          </p>
         </Form>
       </RightContainer>
     </Container>

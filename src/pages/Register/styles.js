@@ -1,3 +1,5 @@
+import { Link as ReactLink } from 'react-router-dom';
+
 import styled from 'styled-components';
 
 import ImgBackground from '../../assets/backgroundBlack.jpg';
@@ -73,14 +75,19 @@ export const RightContainer = styled.div`
   justify-content: center;
 
   @media (max-width: 768px) {
-    flex-direction: column;
+    justify-content: start;
     width: 100%;
+    margin-top: 60px;
   }
 `;
 
 export const Title = styled.h2`
   font-size: 20px;
   margin: 20px 0 10px 0;
+
+  @media (max-width: 1268px) {
+    margin: 10px 0 10px 0;
+  }
 `;
 
 export const Form = styled.form`
@@ -95,6 +102,11 @@ export const Form = styled.form`
 
   border-radius: 7px;
   font-size: 14px;
+
+  p {
+    font-size: 13px;
+    margin-top: 10px;
+  }
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -128,5 +140,16 @@ export const InputContainer = styled.div`
     font-weight: 600;
     height: 10px;
     width: 220px;
+  }
+`;
+
+export const LinkReact = styled(ReactLink)`
+  text-decoration: none;
+  color: #fff;
+  color: grey;
+  font-weight: 500;
+
+  &:hover {
+    color: #000;
   }
 `;
